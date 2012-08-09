@@ -1,0 +1,3 @@
+%h2 Pages#about
+  left.column
+    %h2 Welcome on the about page!
