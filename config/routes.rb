@@ -1,6 +1,8 @@
 Sport::Application.routes.draw do
-  
-#  root :to "pages#home"
+
+
+  resources :users
+  root :to => "pages#home"
 
   match '/signup', :to => "users#new"
 
@@ -8,7 +10,7 @@ Sport::Application.routes.draw do
   match '/about', :to => "pages#about"
   match '/help', :to => "pages#help"
   match '/home', :to => "pages#home"
-  
+
 
   # get "users/new"
   # get "pages/home"

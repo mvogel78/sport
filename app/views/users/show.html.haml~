@@ -1,0 +1,6 @@
+%table
+  %tr
+    %td= @user.firstname
+    %td= @user.lastname
+  %tr
+    %td= @user.email

@@ -46,11 +46,13 @@ gem 'jquery-rails'
 
 group :development do
       gem 'rspec-rails', '2.11.0'
+      gem 'guard-rspec'
 end
 
 group :test do 
+      gem 'capybara'
+      gem 'factory_girl_rails', '1.4.0'
       gem 'rspec', '2.11.0'
-      gem 'webrat', '0.7.1'
 end 
 
 gem 'haml'
