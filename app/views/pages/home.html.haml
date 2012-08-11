@@ -1,4 +1,6 @@
-%h1 #{ title }
-%p 
-  This is a first draft of the documentation software for the sports project in cooperation with the Kindersportzentrum SC DHfK
-= link_to "Login", signup_path , :class => "signup_button round"
+%div{ :class => "center hero-unit" }
+  %h1 #{ title }
+  %p 
+    This is a first draft of the documentation software for the sports project in cooperation with the Kindersportzentrum SC DHfK
+  = link_to "Neuer Nutzer", signup_path , :class => "btn btn-large btn-primary"
+= link_to image_tag("rails.png", alt: "rails"), "http://rubyonrails.org"

@@ -1,5 +1,6 @@
 Sport::Application.routes.draw do
-  get "users/new"
+  
+#  root :to "pages#home"
 
   match '/signup', :to => "users#new"
 
@@ -7,9 +8,9 @@ Sport::Application.routes.draw do
   match '/about', :to => "pages#about"
   match '/help', :to => "pages#help"
   match '/home', :to => "pages#home"
+  
 
-
-
+  # get "users/new"
   # get "pages/home"
   # get "pages/contact"
   # get "pages/about"
