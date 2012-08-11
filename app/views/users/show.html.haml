@@ -1,7 +1,10 @@
-= provide( :title => @user.lastname )
-%h1
-  = gravatar_for @user
-  = @user.firstname + " "  + @user.lastname 
+= provide(:title, @user.lastname)
+%div
+  %aside{ :class => "row" }
+    %section{ :class => "span4" }
+      %h1
+        = gravatar_for @user
+        = @user.firstname + " "  + @user.lastname 
 %table
   %tr
     %th Vorname

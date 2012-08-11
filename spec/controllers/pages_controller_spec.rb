@@ -4,50 +4,34 @@ describe PagesController do
   render_views  
 
   describe "GET 'home'" do
-    it "should be successful" do
-      get 'home'
-      response.should be_success
-    end
-
-    it "should have the right title" do
-      get 'home'
-      response.should have_selector("title", :content => "Projekt Entwurf | Home")
+    it "should have the h1 'Sample App'" do
+      visit home_path
+      page.should have_selector('h1', :text => full_title('Home'))
     end
   end
 
+
   describe "GET 'contact'" do
-    it "should be successful" do
-      get 'contact'
-      response.should be_success
-    end
-    it "should have the right title" do
-      get 'contact'
-      response.should have_selector("title", :content => "Projekt Entwurf | Kontakt")
+    it "should have the h1 'Projekt Entwurf'" do
+      visit contact_path
+      page.should have_selector('h1', :text => full_title('Kontakt'))
     end
   end
 
   describe "GET 'about'" do
-    it "should be successful" do
-      get 'about'
-      response.should be_success
-    end
-    it "should have the right title" do
-      get 'about'
-      response.should have_selector("title", :content => "Projekt Entwurf | About")
+    it "should have the h1 'Projekt Entwurf'" do
+      visit about_path
+      page.should have_selector('h1', :text => full_title('About'))
     end
   end
 
   describe "GET 'help'" do
-    it "should be successful" do
-      get 'help'
-      response.should be_success
-    end
-
-    it "should have the right title" do
-      get 'help'
-      response.should have_selector("title", :content => "Projekt Entwurf | Help")
+    it "should have the h1 'Projekt Entwurf'" do
+      visit help_path
+      page.should have_selector('h1', :text => full_title('Hilfe'))
     end
   end
 
-
 end
+
+    

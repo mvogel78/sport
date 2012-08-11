@@ -35,4 +35,14 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+
+  def full_title(page_title)
+    base_title = "Projekt Entwurf"
+    if page_title.empty?
+      base_title
+    else
+      "#{base_title} | #{page_title}"
+    end
+  end
 end
