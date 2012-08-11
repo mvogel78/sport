@@ -1,0 +1,8 @@
+
+%header 
+  = link_to image_tag('logo.png', :alt => "Sport Projekt Logo", :class => "round") , "http://www.google.com"
+  %nav{ :class => "round" }
+    %ul
+      %li= link_to "Home", '#'
+      %li= link_to "Help", '#'
+      %li= link_to "Sign in", '#'

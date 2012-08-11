@@ -17,13 +17,13 @@ end
 
 module Sport
   class Application < Rails::Application
-    config.generators do |g|
-      g.template_engine :haml
+#    config.generators do |g|
+#      g.template_engine :haml
 
       # you can also specify a different test framework or ORM here
       # g.test_framework  :rspec
       # g.orm             :mongoid
-    end   
+#    end   
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
