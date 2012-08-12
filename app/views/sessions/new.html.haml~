@@ -1,0 +1,14 @@
+%title= title + "| LogIn"
+%h1 LogIn
+
+%div{ :class => "row" }
+  %div{ :class => "span6 offset3" }
+    = form_for( :session, url: sessions_path ) do |f|
+      = f.label :email
+      = f.text_field :email
+      = f.label :password
+      = f.text_field :password
+      = submit_tag 'LogIn', :class => 'btn btn-large btn-primary'
+    %p
+      Neuer Nutzer?
+      = link_to "Nutzer anlegen", signup_path
