@@ -70,13 +70,17 @@ describe "AuthenticationPages" do
 
       describe "in the Users controller" do
 
-      describe "visiting the user index" do
-        before { visit users_path }
-        it { should have_selector('h1', text: 'Nutzer') }
-      end
+        describe "visiting the user index" do
+          before do
+            visit users_path 
+          end
+          it { should have_selector("h1", text: 'Nutzerliste') }
+        end
 
         describe "visiting the edit page" do
-          before { visit edit_user_path(user) }
+          before do
+            visit edit_user_path(user)
+          end
           it { should have_selector('h1', text: 'LogIn') }
         end
         

@@ -1,7 +1,6 @@
-%h1 Nutzer
+%h1 Nutzerliste
+= will_paginate
 %table
   - @users.each do |user|
-    %tr
-      %td
-        = link_to user.firstname + " " + user.lastname, user
-      %td= user.email
+    = render user
+= will_paginate
