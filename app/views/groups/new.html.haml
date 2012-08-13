@@ -1,13 +1,29 @@
-%h1 Neuer Nutzer
+%h1 Neue Gruppe
 %div{ :class => "row" }
-  %div{ :class => "span6 offset3" }
+  %div
     = form_for @group do |f|
-      =f.label :name
-      =f.text_field :name
-      =f.label :starts_at
-      =f.text_field :starts_at
-      =f.label :ends_at
-      =f.text_field :ends_at
-      =f.label :agegroup
-      =f.input :agegroup, :as => :select, :label => "Altersgruppe", :include_blank => true, :collection => AG
-      = submit_tag 'Save', :class => 'btn btn-large btn-primary'
+      %table
+        %tr
+          %td{ :min_width => "200px;" }=f.label "Gruppe"
+          %td=f.text_field :name
+          %td=f.label "Gruppenleiter"
+          %td=f.select :user_id, usrlist
+        %tr
+          %td=f.label "Kindergarten"
+          %td=f.select :kindergarden, [["nein",false],["ja",true]]
+          %td=f.label "Häufigkeit"
+          %td=f.select :intermittency, [["wöchentlich",1],["14tägig",2],["2x/Woche",3],["täglich",4]]
+        %tr
+          %td=f.label "Beginn"
+          %td=f.date_select :starts_at, :start_year => Time.now.year, :end_year => Time.now.year + 1
+          %td=f.label "Ende"
+          %td=f.date_select :ends_at, :start_year => Time.now.year, :end_year => Time.now.year + 1
+        %tr
+          %td=f.label "Kategorie"
+          %td=f.select :category, [["Kindersport",1],["Eltern-Kind-Sport",2],["Kinderturnen",3],["Turnen/Akrobatik",4],["Artistik/Akrobatik",5],["Badminton",6]]
+          %td=f.label "Altersgruppe"
+          %td=f.select :agegroup, [["2-4", 1], ["5-6", 2], ["7-10", 3],["11-15",4],["15-16",5]]
+        %tr
+      = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'
+
+

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class Group < ActiveRecord::Base
-  attr_accessible :name, :starts_at, :ends_at, :agegroup, :kindergarden, :category, :duration, :intermittency
+  attr_accessible :user_id, :name, :starts_at, :ends_at, :agegroup, :kindergarden, :category, :duration, :intermittency
 
   belongs_to :user
 

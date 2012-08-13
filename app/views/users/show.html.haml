@@ -20,3 +20,4 @@
         %tbody
           = render @groups
       = will_paginate @groups
+      = link_to "Neue Gruppe anlegen", newgroup_path, :user_id => :id
