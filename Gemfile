@@ -6,7 +6,7 @@ gem 'bcrypt-ruby'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-
+gem 'formtastic'
 
 gem 'annotate', group: :development
 

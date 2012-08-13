@@ -1,6 +1,7 @@
 Sport::Application.routes.draw do
   resources :users
   resources :sessions, only: [ :new, :create, :destroy ]
+  resources :groups, only: [ :new, :create, :destroy ]
 
   root :to => "pages#home"
 
@@ -14,6 +15,7 @@ Sport::Application.routes.draw do
   match '/home', :to => "pages#home"
 
 
+  match '/newgroup', :to => "groups#new"
 
   # get "users/new"
   # get "pages/home"

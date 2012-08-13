@@ -1,0 +1,18 @@
+= provide(:title, 'Neue Gruppe')
+%h1 Neuer Nutzer
+
+%div{ :class => "row" }
+  %div{ :class => "span6 offset3" }
+    = form_for @group do |f|
+      =render :partial => 'shared/error_messages'
+      =f.label :name
+      =f.text_field :name
+      =f.label :starts_at
+      =f.text_field :starts_at
+      =f.label :ends_at
+      =f.text_field :ends_at
+      =f.label :agegroup
+      =f.collection_select{:include_blank => true} @agegroups
+      =f.label :duration
+      =f.collection_select{:include_blank => true} @agegroups
+      = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'
