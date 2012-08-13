@@ -2,5 +2,7 @@
   %td
     = link_to user.firstname + " " + user.lastname, user
   %td= user.email
+  %td= user.groups.count
   - if current_user.admin? && !current_user?(user)
     %td= link_to "delete", user, method: :delete, data: { confirm: "Sicher?"}
+

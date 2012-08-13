@@ -31,6 +31,7 @@ describe User do
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:remember_token) }
+  it { should respond_to(:groups) }
 
 
   it { should be_valid }
@@ -147,4 +148,25 @@ describe User do
     its( :remember_token ) { should_not be_blank }
   end
 
+  describe "group association" do
+    before { @user.save }
+    let!(:older_group) do
+      FactoryGirl.create(:group, user: @user, starts_at: 1.week.from_now )
+    end
+    let!(:newer_group) do
+      FactoryGirl.create(:group, user: @user, starts_at: 1.month.from_now )
+    end
+
+    it "should have the right groups in the right order" do
+      @user.groups.should == [ newer_group, older_group ]
+    end
+
+    it "should destroy associated groups" do 
+      groups = @user.groups
+      @user.destroy
+      groups.each do |group|
+        Group.find_by_id(group.id).should be_nil
+      end
+    end
+  end
 end

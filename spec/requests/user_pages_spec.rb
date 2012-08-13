@@ -58,11 +58,20 @@ describe "User pages" do
 
   describe "profile page" do 
     let(:user) { FactoryGirl.create(:user) }
+    let(:g1) { FactoryGirl.create(:group, user: user, name: "Foo" ) }
+    let(:g2) { FactoryGirl.create(:group, user: user, name: "Bar" ) }
+
     before { visit user_path(user) }
     
     it { should have_selector('h1', text: user.lastname ) }
     it { should have_selector('h1', text: user.firstname ) }
     it { should have_selector('title', text: 'Projekt Entwurf' ) }
+
+    describe "group" do
+      it { should have_content(g1.name) }
+      it { should have_content(g2.name) }
+      it { should have_content(user.groups.count) }
+    end      
   end
 
 

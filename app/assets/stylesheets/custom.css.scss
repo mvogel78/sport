@@ -188,3 +188,23 @@ input, textarea, select, .uneditable-input {
     }
   }
 }
+
+/* tables */
+
+table {
+}
+
+td {
+   border-right: 1px dotted gray;
+}
+
+tr {
+   border:1px dotted gray;
+   background: #fff;
+}
+
+tr:nth-child(odd) {
+   background: #d3e4e5
+}
+
+

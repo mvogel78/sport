@@ -18,6 +18,14 @@ namespace :db do
                    email: email,
                    password: password,
                    password_confirmation: password)
-    end
+    end 
+    users = User.all(limit: 10)
+    20.times do 
+       name = Faker::Lorem.words(num = 2)
+       agegroup = rand(1..5)
+       intermittency = rand(1..4)
+       users.each { |user| user.groups.create!(name: name, agegroup: agegroup, intermittency: intermittency) }
+  
+    end		  
   end
-end
+end 

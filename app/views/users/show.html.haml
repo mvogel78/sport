@@ -1,15 +1,22 @@
-%div
+%div{ :class => "row" }
   %aside{ :class => "row" }
     %section{ :class => "span4" }
       %h1
-        = gravatar_for @user
         = @user.firstname + " "  + @user.lastname 
-%table
-  %tr
-    %th Vorname
-    %th Familienname
-    %th email
-  %tr
-    %td= @user.firstname
-    %td= @user.lastname
-    %td= @user.email
+  %div{ :class => "span8" }
+    - if @user.groups.any?
+      %h3 #{ @user.groups.count } Kurse
+      %table
+        %thead
+          %tr
+            %td Gruppe
+            %td Beginn
+            %td Ende
+            %td Altersgruppe
+            %td Kindergarten
+            %td Kategorie
+            %td Dauer (min)
+            %td Häufigkeit
+        %tbody
+          = render @groups
+      = will_paginate @groups

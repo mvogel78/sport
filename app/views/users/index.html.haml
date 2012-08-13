@@ -1,6 +1,10 @@
 %h1 Nutzerliste
 = will_paginate
 %table
+  %thead
+    %td Name
+    %td Email
+    %td Gruppen
   %body
     - @users.each do |user|
       = render user

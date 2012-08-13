@@ -1,0 +1,11 @@
+%tr
+  %td=group.name
+  %td=group.starts_at
+  %td=group.ends_at
+  %td=group.agegroup
+  %td=group.kindergarden
+  %td=group.category
+  %td=group.duration
+  %td=group.intermittency
+
+  
