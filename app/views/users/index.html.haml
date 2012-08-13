@@ -1,6 +1,7 @@
 %h1 Nutzerliste
 = will_paginate
 %table
-  - @users.each do |user|
-    = render user
+  %body
+    - @users.each do |user|
+      = render user
 = will_paginate
