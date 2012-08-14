@@ -1,0 +1,13 @@
+= form_for @child do |f|
+  =f.label "Vorname"
+  =f.text_field :firstname
+  =f.label "Nachname"
+  =f.text_field :lastname
+  =f.label "Geburtsdatum"
+  =f.date_select :born_at, :start_year => Time.now.year - 18, :end_year => Time.now.year - 2
+  =f.label "Geschlecht"
+  =f.select :female, [["männlich",false],["weiblich",true]], include_blank: true
+  =f.label "Postleitzahl"
+  =f.text_field :zipcode
+  %br
+  = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'

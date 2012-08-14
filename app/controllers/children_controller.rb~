@@ -1,0 +1,13 @@
+class ChildrenController < ApplicationController
+  def new
+    @child = Child.new
+  end
+
+  def edit
+    @child = Child.find(params[:id])
+  end
+
+  def index
+    @children = Child.paginate(page: params[:page], :per_page => 15)
+  end
+end

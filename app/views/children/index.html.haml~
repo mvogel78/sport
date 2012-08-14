@@ -1,0 +1,13 @@
+%h1 Teilnehmer
+= will_paginate
+%table
+  %thead
+    %td Vorname
+    %td Name
+    %td Geburtsdatum
+    %td Geschlecht
+    %td Postleitzahl
+  %body
+    - @children.each do |child|
+      = render child
+= will_paginate

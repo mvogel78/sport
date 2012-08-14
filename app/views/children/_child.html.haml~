@@ -1,0 +1,8 @@
+%tr
+  %td= link_to child.firstname
+  %td= link_to child.lastname
+  %td= child.born_at
+  %td= child.sex
+  %td= child.zipcode
+  - if current_user.admin? && !current_user?(user)
+    %td= link_to "delete", "#"

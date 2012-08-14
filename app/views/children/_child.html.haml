@@ -1,0 +1,8 @@
+%tr
+  %td= link_to child.firstname, edit_child_path(child)
+  %td= link_to child.lastname, child
+  %td= child.born_at
+  %td= child.female ? "weiblich" : "männlich"
+  %td= child.zipcode
+  - if current_user.admin?
+    %td= link_to "delete", "#"

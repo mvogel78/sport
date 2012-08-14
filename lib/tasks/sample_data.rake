@@ -19,6 +19,7 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end 
+
     users = User.all(limit: 10)
     20.times do 
        name = Faker::Lorem.words(num = 2)
@@ -27,5 +28,16 @@ namespace :db do
        users.each { |user| user.groups.create!(name: name, agegroup: agegroup, intermittency: intermittency) }
   
     end		  
+
+
+    35.times do |n|
+      lastname  = Faker::Name.last_name
+      firstname  = Faker::Name.first_name
+      password  = "password"
+      Child.create!(lastname: lastname,
+                   firstname: firstname,
+                   born_at: rand(2..15).years.ago.to_date,
+                   female: [true,false].sample)
+    end 
   end
 end 

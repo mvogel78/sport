@@ -1,18 +1,18 @@
-= provide(:title, 'Neuer Nutzer')
 %h1 Neuer Nutzer
 
 %div{ :class => "row" }
-  %div{ :class => "span6 offset3" }
-    = form_for @user do |f|
-      =render :partial => 'shared/error_messages'
-      =f.label :lastname
-      =f.text_field :lastname
-      =f.label :firstname
-      =f.text_field :firstname
-      =f.label :email
-      =f.text_field :email
-      =f.label :password
-      =f.password_field :password
-      =f.label :password_confirmation, "Confirmation"
-      =f.password_field :password_confirmation
-      = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'
+  %div{ :class => "span3 offset3" }
+    %div{ :class => "newuser" }
+      = form_for @user do |f|
+        =render :partial => 'shared/error_messages'
+        =f.label :lastname
+        =f.text_field :lastname
+        =f.label :firstname
+        =f.text_field :firstname
+        =f.label :email
+        =f.text_field :email
+        =f.label :password
+        =f.password_field :password
+        =f.label :password_confirmation, "Confirmation"
+        =f.password_field :password_confirmation
+        = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'

@@ -151,13 +151,14 @@ aside {
 
 
 /* forms */
-
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  height: auto;	 
-  padding: 10px;
-  margin-bottom: 15px;
+.newuser {
+  input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    height: auto;	 
+    padding: 10px;
+    margin-bottom: 15px;
+    }
 }
 
 
@@ -196,7 +197,7 @@ table {
 
 td {
    border-right: 1px dotted gray;
-   min-width:     180px 
+   min-width:     100px 
 }
 
 tr {
