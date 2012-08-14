@@ -1,0 +1,7 @@
+%h1= "Gruppe" + @group.name
+%div{ :class => "row" }
+  %div
+    - if @noc.nil?
+      = render @children
+
+  

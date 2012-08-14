@@ -3,6 +3,9 @@ class Group < ActiveRecord::Base
   attr_accessible :user_id, :name, :starts_at, :ends_at, :agegroup, :kindergarden, :category, :duration, :intermittency
 
   belongs_to :user
+  has_many :affiliations
+
+  has_many :child_ids, :through => :affiliations
 
   validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 140 }
@@ -44,6 +47,10 @@ class Group < ActiveRecord::Base
       when 5 then "Artistik/Akrobatik"
       when 6 then "Badminton"
     end
+  end
+
+  def ingroup?(child)
+    affiliations.find_by_child_id(child.id)
   end
 
 end

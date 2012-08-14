@@ -15,10 +15,11 @@ class ChildrenController < ApplicationController
     @child = Child.find_by_id(params[:id])
     if @child.update_attributes(params[:child])
       flash[:success] = "Kind aktualisiert"
-      redirect_to children_path
+      redirect_to edit_child_path(@child)
     else
       flash[:error] = "Es ist ein Fehler aufgetreten"
       render 'edit'
     end
   end
+
 end

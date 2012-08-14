@@ -2,3 +2,9 @@
 %div{ :class => "row" }
   %div
     = render(:partial => "editchild", :id => :id )
+  %div
+    %h3 Gruppe hinzufügen
+    = form_for(@child.affiliations.build(child_id: @child.id)) do |f|
+      = f.collection_select :group_id, Group.all, :id, :name
+      %br
+      = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'

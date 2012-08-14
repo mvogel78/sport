@@ -24,6 +24,11 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    if @group.affiliations.count != 0
+      @children = @group.affiliations
+    else
+      @noc=0
+    end
   end
 
   def edit

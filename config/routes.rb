@@ -5,6 +5,7 @@ Sport::Application.routes.draw do
   resources :sessions, only: [ :new, :create, :destroy ]
   resources :groups # , only: [ :new, :create, :destroy, :edit ]
   resources :children
+  resources :affiliations 
 
   root :to => "pages#home"
 
