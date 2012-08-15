@@ -3,6 +3,12 @@ class ChildrenController < ApplicationController
     @child = Child.new
   end
 
+  def create
+    @child = Child.new(params[:child])
+    @child.save
+    redirect_to edit_child_path(@child)
+  end
+
   def edit
     @child = Child.find(params[:id])
     @groups = @child.groups
