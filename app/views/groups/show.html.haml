@@ -14,4 +14,14 @@
           = render child
     - else
       %p Die Gruppe hat noch keine Teilnehmer
+    - if @noa.nil?
+      %h3 Termine
+      %table
+        %tr
+          %td Datum
+          %td entfallen
+          %td Grund
+          %td Kommentar
+        - @appointments.each do |appointment|
+          = render appointment
   

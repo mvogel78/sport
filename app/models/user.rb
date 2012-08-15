@@ -8,8 +8,6 @@
 #  email      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
-
 class User < ActiveRecord::Base
   attr_accessible :firstname, :lastname, :email, :password, :password_confirmation
   has_many :groups, dependent: :destroy

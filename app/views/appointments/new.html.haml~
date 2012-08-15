@@ -1,0 +1,11 @@
+%h1 Neuen Termin anlegen
+%div{ :class => "row" }
+  %div{ :class => "span3 offset3" }
+    %div{ :class => "newuser" }
+      = form_for @appointment do |f|
+        = f.hidden_field :group_id, :default => params[:appointment][:id]
+        = f.date_select :date_at, :start_year => Time.now.year, :end_year => Time.now.year + 1, :include_blank => true
+        = f.select :canceled, [["nein",false],["ja",true]], :default => false
+        = f.select :reason, [["Feiertag", 1],["Krankheit",2],["anderes",3]], :include_blank => true
+        = f.text_field :comment
+        = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'

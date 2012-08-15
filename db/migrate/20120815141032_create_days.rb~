@@ -1,0 +1,13 @@
+class CreateDays < ActiveRecord::Migration
+  def change
+    create_table :days do |t|
+      t.integer :group_id
+      t.date :date_at
+      t.boolean :canceled
+      t.integer :reason
+      t.string :comment
+
+      t.timestamps
+    end
+  end
+end

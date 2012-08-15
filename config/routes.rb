@@ -6,7 +6,7 @@ Sport::Application.routes.draw do
   resources :groups # , only: [ :new, :create, :destroy, :edit ]
   resources :children
   resources :affiliations 
-  resources :appointments 
+  resources :appointments
 
   root :to => "pages#home"
 

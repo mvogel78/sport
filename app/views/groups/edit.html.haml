@@ -2,10 +2,37 @@
 %div{ :class => "row" }
   %div
     = render(:partial => "editgroup", :id => :id )
-%div{ :class => "row" }
   %div
-    = form_for(@group.appointments.build(group_id: @group.id)) do |f|
-      = f.hidden_field :group_id, :default => @group.id
-      = f.hidden_field :group_id, :default => :id
-      %br
-      = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'
+    %h3 Termine
+    %table
+      %tr
+        %td Datum
+        %td entfallen
+        %td Grund
+        %td Kommentar
+      - @appointments.each do |appointment|
+        = render appointment
+    %br
+    %h3 Neuer Termin
+    %div
+      %div
+        %table
+          = form_for @group.appointments.build(group_id: @group.id) do |f|
+            %tr
+              %td
+                = f.hidden_field :group_id, :default => @group_id
+                = f.label "Datum"
+                = f.date_select :date_at, :start_year => Time.now.year, :end_year => Time.now.year + 1, :include_blank => true
+            %tr
+              %td
+                = f.label "ausgefallen"
+                = f.select :canceled, [["nein",false],["ja",true]], :default => false
+            %tr
+              %td
+                = f.label "Grund"
+                = f.select :reason, [["Feiertag", 1],["Krankheit",2],["anderes",3]], :include_blank => true
+            %tr
+              %td
+                = f.label "Kommentar"
+                = f.text_field :comment
+                = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'

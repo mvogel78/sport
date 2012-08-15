@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120815122422) do
+ActiveRecord::Schema.define(:version => 20120815192325) do
 
   create_table "affiliations", :force => true do |t|
     t.integer  "group_id"
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(:version => 20120815122422) do
   end
 
   add_index "appointments", ["group_id", "date_at"], :name => "index_appointments_on_group_id_and_date_at"
+
+  create_table "attendances", :force => true do |t|
+    t.integer  "appointment_id"
+    t.integer  "child_id"
+    t.boolean  "absence"
+    t.integer  "reason"
+    t.string   "comment"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "attendances", ["appointment_id", "child_id"], :name => "index_attendances_on_appointment_id_and_child_id", :unique => true
+  add_index "attendances", ["appointment_id"], :name => "index_attendances_on_appointment_id"
+  add_index "attendances", ["child_id"], :name => "index_attendances_on_child_id"
 
   create_table "children", :force => true do |t|
     t.string   "lastname"

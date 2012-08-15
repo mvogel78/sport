@@ -1,0 +1,7 @@
+%tr
+  %td
+    = link_to appointment.date_at, appointment_path(appointment)
+    = link_to " edit", edit_appointment_path(appointment)
+  %td= appointment.canceled
+  %td= appointment.reason
+  %td= appointment.comment
