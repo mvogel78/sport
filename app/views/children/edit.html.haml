@@ -3,8 +3,22 @@
   %div
     = render(:partial => "editchild", :id => :id )
   %div
+    %h3 Gruppen
+    %table
+      %thead
+        %td Gruppenname
+        %td Gruppenleiter
+        %td Start
+        %td Ende
+        %td Altersgruppe
+        %td Kindergarten
+        %td Kategorie
+        %td Dauer (min)
+        %td Intervall
+        = render @groups
     %h3 Gruppe hinzufügen
     = form_for(@child.affiliations.build(child_id: @child.id)) do |f|
       = f.collection_select :group_id, Group.all, :id, :name
+      = f.hidden_field :child_id, :default => @child.id
       %br
       = submit_tag 'Speichern', :class => 'btn btn-large btn-primary'

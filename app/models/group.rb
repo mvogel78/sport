@@ -4,13 +4,15 @@ class Group < ActiveRecord::Base
 
   belongs_to :user
   has_many :affiliations
+  has_many :appointments
 
-  has_many :child_ids, :through => :affiliations
+
+  has_many :children, :through => :affiliations
 
   validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 140 }
 
-  default_scope order: 'groups.starts_at DESC'
+  default_scope order: 'groups.starts_at DESC NULLS LAST'
 
   def ag(x)
     case x

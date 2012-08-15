@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 module ApplicationHelper
 
-
   AG = [["2-4", 1], ["5-6", 2], ["7-10", 3],["11-15",4],["15-16",5]]
 
   def title

@@ -1,8 +1,17 @@
-%h1= "Gruppe" + @group.name
+%h1= "Gruppe: " + @group.name
 %div{ :class => "row" }
   %div
-    %p= @noc
     - if @noc.nil?
-      = render @children
-    
+      %table
+        %thead
+          %td Vorname
+          %td Name
+          %td Geburtsdatum
+          %td Geschlecht
+          %td Postleitzahl
+        %body
+        - @children.each do |child|
+          = render child
+    - else
+      %p Die Gruppe hat noch keine Teilnehmer
   

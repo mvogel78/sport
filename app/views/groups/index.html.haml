@@ -1,0 +1,18 @@
+%h1 Gruppenliste
+= will_paginate
+%table
+  %thead
+    %td Gruppenname
+    %td Gruppenleiter
+    %td Start
+    %td Ende
+    %td Altersgruppe
+    %td Kindergarten
+    %td Kategorie
+    %td Dauer (min)
+    %td Intervall
+  %body
+    - @groups.each do |group|
+      = render group
+= will_paginate
+= link_to "Neue Gruppe anlegen", newgroup_path

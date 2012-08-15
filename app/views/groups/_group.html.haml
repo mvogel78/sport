@@ -2,6 +2,7 @@
   %td
     = link_to group.name, group_path(group), :id => group.id
     = link_to "  edit", edit_group_path(group), :id => group.id
+  %td{:align => "center"}=group.user.fullname
   %td{:align => "center"}=group.starts_at
   %td{:align => "center"}=group.ends_at
   %td{:align => "center"}=group.ag(group.agegroup)

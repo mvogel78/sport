@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @groups = Group.paginate(page: params[:page], :per_page => 15)
   end
 
   def create
@@ -25,7 +26,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     if @group.affiliations.count != 0
-      @children = @group.affiliations
+      @children = @group.children
     else
       @noc=0
     end
@@ -38,8 +39,8 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find_by_id(params[:id])
     if @group.update_attributes(params[:group])
-      flash[:success] = "Gruppe updated"
-      redirect_to children_path(params[:group][:user_id])
+      flash[:success] = "Gruppeninformationen aktualisiert"
+      redirect_to(:back)
     else
       flash[:error] = "Es ist ein Fehler aufgetreten"
       render 'edit'

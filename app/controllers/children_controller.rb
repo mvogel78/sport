@@ -5,6 +5,7 @@ class ChildrenController < ApplicationController
 
   def edit
     @child = Child.find(params[:id])
+    @groups = @child.groups
   end
 
   def index

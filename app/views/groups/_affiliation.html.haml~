@@ -2,9 +2,6 @@
   %td= link_to child.firstname, edit_child_path(child), :child_id => child.id
   %td= link_to child.lastname, child
   %td= child.born_at
-  %td
-    - if !child.born_at.nil?
-      = time_ago_in_words(child.born_at)
   %td= child.female ? "weiblich" : "männlich"
   %td= child.zipcode
   - if current_user.admin?

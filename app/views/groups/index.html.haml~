@@ -1,0 +1,12 @@
+%h1 Gruppenliste
+= will_paginate
+%table
+  %thead
+    %td Gruppenname
+    %td Gruppenleiter
+    %td Start
+    %td Ende
+  %body
+    - @groups.each do |group|
+      = render group
+= will_paginate
