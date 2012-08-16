@@ -3,6 +3,7 @@ class Child < ActiveRecord::Base
 
   has_many :affiliations
   has_many :groups, :through => :affiliations
+  has_many :attendences
 
   validates :lastname, presence: true, length: { maximum: 50 }
   validates :firstname, presence: true, length: { maximum: 50 }

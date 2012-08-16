@@ -1,8 +1,18 @@
 %h1= "Termin"
 = @appointment.attendances.count
 %table
-  - @appointment.group.children.each do |child|
+  %tr
+    %td Vorname
+    %td name
+    %td Abwesenheit
+    %td Grund
+    %td Kommentar
+  - @appointment.attendances.each do |attendance|
     %tr
-      %td=child.firstname
-      %td=child.lastname
+      %td= attendance.child.firstname
+      %td= attendance.child.lastname
+      %td= attendance.absence
+      %td= attendance.reason
+      %td= attendance.comment
+
 

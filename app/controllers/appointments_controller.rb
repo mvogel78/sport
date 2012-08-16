@@ -13,6 +13,10 @@ class AppointmentsController < ActionController::Base
   def create
     @appointment = Appointment.new(params[:appointment])
     if @appointment.save
+      @appointment.group.children.each do |child|
+        @attendance = Attendance.new(:child_id => child.id, :appointment_id => @appointment.id)
+        @attendance.save
+      end
       flash[:success] = "Termin angelegt"
     else
       flash[:error] = "Fehler, anlegen nicht moeglich"
